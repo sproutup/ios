@@ -1,0 +1,424 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2B2BA15A1AFC000300BD6923 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2BA1591AFC000300BD6923 /* AppDelegate.swift */; };
+		2B2BA15C1AFC000300BD6923 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2BA15B1AFC000300BD6923 /* ViewController.swift */; };
+		2B2BA15F1AFC000300BD6923 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B2BA15D1AFC000300BD6923 /* Main.storyboard */; };
+		2B2BA1611AFC000300BD6923 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B2BA1601AFC000300BD6923 /* Images.xcassets */; };
+		2B2BA1641AFC000300BD6923 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B2BA1621AFC000300BD6923 /* LaunchScreen.xib */; };
+		2B2BA1701AFC000300BD6923 /* SproutUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2BA16F1AFC000300BD6923 /* SproutUpTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2B2BA16A1AFC000300BD6923 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B2BA14C1AFC000300BD6923 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B2BA1531AFC000300BD6923;
+			remoteInfo = SproutUp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2B2BA1541AFC000300BD6923 /* SproutUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SproutUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B2BA1581AFC000300BD6923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B2BA1591AFC000300BD6923 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2B2BA15B1AFC000300BD6923 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2B2BA15E1AFC000300BD6923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2B2BA1601AFC000300BD6923 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2B2BA1631AFC000300BD6923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		2B2BA1691AFC000300BD6923 /* SproutUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SproutUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B2BA16E1AFC000300BD6923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B2BA16F1AFC000300BD6923 /* SproutUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SproutUpTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2B2BA1511AFC000300BD6923 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B2BA1661AFC000300BD6923 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2B2BA14B1AFC000300BD6923 = {
+			isa = PBXGroup;
+			children = (
+				2B2BA1561AFC000300BD6923 /* SproutUp */,
+				2B2BA16C1AFC000300BD6923 /* SproutUpTests */,
+				2B2BA1551AFC000300BD6923 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2B2BA1551AFC000300BD6923 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2B2BA1541AFC000300BD6923 /* SproutUp.app */,
+				2B2BA1691AFC000300BD6923 /* SproutUpTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2B2BA1561AFC000300BD6923 /* SproutUp */ = {
+			isa = PBXGroup;
+			children = (
+				2B2BA1591AFC000300BD6923 /* AppDelegate.swift */,
+				2B2BA15B1AFC000300BD6923 /* ViewController.swift */,
+				2B2BA15D1AFC000300BD6923 /* Main.storyboard */,
+				2B2BA1601AFC000300BD6923 /* Images.xcassets */,
+				2B2BA1621AFC000300BD6923 /* LaunchScreen.xib */,
+				2B2BA1571AFC000300BD6923 /* Supporting Files */,
+			);
+			path = SproutUp;
+			sourceTree = "<group>";
+		};
+		2B2BA1571AFC000300BD6923 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2B2BA1581AFC000300BD6923 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2B2BA16C1AFC000300BD6923 /* SproutUpTests */ = {
+			isa = PBXGroup;
+			children = (
+				2B2BA16F1AFC000300BD6923 /* SproutUpTests.swift */,
+				2B2BA16D1AFC000300BD6923 /* Supporting Files */,
+			);
+			path = SproutUpTests;
+			sourceTree = "<group>";
+		};
+		2B2BA16D1AFC000300BD6923 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2B2BA16E1AFC000300BD6923 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2B2BA1531AFC000300BD6923 /* SproutUp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B2BA1731AFC000300BD6923 /* Build configuration list for PBXNativeTarget "SproutUp" */;
+			buildPhases = (
+				2B2BA1501AFC000300BD6923 /* Sources */,
+				2B2BA1511AFC000300BD6923 /* Frameworks */,
+				2B2BA1521AFC000300BD6923 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SproutUp;
+			productName = SproutUp;
+			productReference = 2B2BA1541AFC000300BD6923 /* SproutUp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2B2BA1681AFC000300BD6923 /* SproutUpTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B2BA1761AFC000300BD6923 /* Build configuration list for PBXNativeTarget "SproutUpTests" */;
+			buildPhases = (
+				2B2BA1651AFC000300BD6923 /* Sources */,
+				2B2BA1661AFC000300BD6923 /* Frameworks */,
+				2B2BA1671AFC000300BD6923 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2B2BA16B1AFC000300BD6923 /* PBXTargetDependency */,
+			);
+			name = SproutUpTests;
+			productName = SproutUpTests;
+			productReference = 2B2BA1691AFC000300BD6923 /* SproutUpTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2B2BA14C1AFC000300BD6923 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "SproutUp Co";
+				TargetAttributes = {
+					2B2BA1531AFC000300BD6923 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					2B2BA1681AFC000300BD6923 = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = 2B2BA1531AFC000300BD6923;
+					};
+				};
+			};
+			buildConfigurationList = 2B2BA14F1AFC000300BD6923 /* Build configuration list for PBXProject "SproutUp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2B2BA14B1AFC000300BD6923;
+			productRefGroup = 2B2BA1551AFC000300BD6923 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2B2BA1531AFC000300BD6923 /* SproutUp */,
+				2B2BA1681AFC000300BD6923 /* SproutUpTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2B2BA1521AFC000300BD6923 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B2BA15F1AFC000300BD6923 /* Main.storyboard in Resources */,
+				2B2BA1641AFC000300BD6923 /* LaunchScreen.xib in Resources */,
+				2B2BA1611AFC000300BD6923 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B2BA1671AFC000300BD6923 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2B2BA1501AFC000300BD6923 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B2BA15C1AFC000300BD6923 /* ViewController.swift in Sources */,
+				2B2BA15A1AFC000300BD6923 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B2BA1651AFC000300BD6923 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B2BA1701AFC000300BD6923 /* SproutUpTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2B2BA16B1AFC000300BD6923 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2B2BA1531AFC000300BD6923 /* SproutUp */;
+			targetProxy = 2B2BA16A1AFC000300BD6923 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2B2BA15D1AFC000300BD6923 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2B2BA15E1AFC000300BD6923 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2B2BA1621AFC000300BD6923 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2B2BA1631AFC000300BD6923 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2B2BA1711AFC000300BD6923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2B2BA1721AFC000300BD6923 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2B2BA1741AFC000300BD6923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SproutUp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2B2BA1751AFC000300BD6923 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SproutUp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2B2BA1771AFC000300BD6923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SproutUpTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SproutUp.app/SproutUp";
+			};
+			name = Debug;
+		};
+		2B2BA1781AFC000300BD6923 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SproutUpTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SproutUp.app/SproutUp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2B2BA14F1AFC000300BD6923 /* Build configuration list for PBXProject "SproutUp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B2BA1711AFC000300BD6923 /* Debug */,
+				2B2BA1721AFC000300BD6923 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2B2BA1731AFC000300BD6923 /* Build configuration list for PBXNativeTarget "SproutUp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B2BA1741AFC000300BD6923 /* Debug */,
+				2B2BA1751AFC000300BD6923 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2B2BA1761AFC000300BD6923 /* Build configuration list for PBXNativeTarget "SproutUpTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B2BA1771AFC000300BD6923 /* Debug */,
+				2B2BA1781AFC000300BD6923 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2B2BA14C1AFC000300BD6923 /* Project object */;
+}
