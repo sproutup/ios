@@ -20,6 +20,11 @@
 		688D92711B20A7FB003AF29E /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688D926B1B20A7FB003AF29E /* FBSDKMessengerShareKit.framework */; };
 		688D92721B20A7FB003AF29E /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688D926C1B20A7FB003AF29E /* FBSDKShareKit.framework */; };
 		688D92741B20A9E6003AF29E /* FBLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688D92731B20A9E6003AF29E /* FBLoginViewController.swift */; };
+		688D92761B20B508003AF29E /* ProductInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688D92751B20B508003AF29E /* ProductInformationViewController.swift */; };
+		688D92781B20B524003AF29E /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688D92771B20B524003AF29E /* ProductsViewController.swift */; };
+		688D927A1B20B543003AF29E /* LikedProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688D92791B20B543003AF29E /* LikedProductViewController.swift */; };
+		688D927C1B20C7FC003AF29E /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688D927B1B20C7FC003AF29E /* Product.swift */; };
+		688D92851B20F256003AF29E /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688D92841B20F256003AF29E /* ProductView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +55,11 @@
 		688D926B1B20A7FB003AF29E /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
 		688D926C1B20A7FB003AF29E /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		688D92731B20A9E6003AF29E /* FBLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLoginViewController.swift; sourceTree = "<group>"; };
+		688D92751B20B508003AF29E /* ProductInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductInformationViewController.swift; sourceTree = "<group>"; };
+		688D92771B20B524003AF29E /* ProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		688D92791B20B543003AF29E /* LikedProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikedProductViewController.swift; sourceTree = "<group>"; };
+		688D927B1B20C7FC003AF29E /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		688D92841B20F256003AF29E /* ProductView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		68BC99B61B1FAA0000BD6560 /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +117,11 @@
 				2B2BA1591AFC000300BD6923 /* AppDelegate.swift */,
 				2B2BA15B1AFC000300BD6923 /* ViewController.swift */,
 				688D92731B20A9E6003AF29E /* FBLoginViewController.swift */,
+				688D92751B20B508003AF29E /* ProductInformationViewController.swift */,
+				688D92771B20B524003AF29E /* ProductsViewController.swift */,
+				688D92841B20F256003AF29E /* ProductView.swift */,
+				688D927B1B20C7FC003AF29E /* Product.swift */,
+				688D92791B20B543003AF29E /* LikedProductViewController.swift */,
 				2B2BA15D1AFC000300BD6923 /* Main.storyboard */,
 				68BC99B61B1FAA0000BD6560 /* Bridge-Header.h */,
 				2B2BA1601AFC000300BD6923 /* Images.xcassets */,
@@ -242,9 +257,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				688D927A1B20B543003AF29E /* LikedProductViewController.swift in Sources */,
+				688D92851B20F256003AF29E /* ProductView.swift in Sources */,
 				2B2BA15C1AFC000300BD6923 /* ViewController.swift in Sources */,
 				2B2BA15A1AFC000300BD6923 /* AppDelegate.swift in Sources */,
 				688D92741B20A9E6003AF29E /* FBLoginViewController.swift in Sources */,
+				688D92761B20B508003AF29E /* ProductInformationViewController.swift in Sources */,
+				688D92781B20B524003AF29E /* ProductsViewController.swift in Sources */,
+				688D927C1B20C7FC003AF29E /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,10 +395,6 @@
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/tao/Documents/FacebookSDK,
-					"/Users/Apurv/Documents/Apurv/SproutUp/ios/Bolts-iOS/ios",
-					/Users/Apurv/Documents/Apurv/SproutUp/ios/FacebookSDK,
-					/Users/Apurv/Documents/FacebookSDK,
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SproutUp/Info.plist;
@@ -398,10 +414,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tao Ni (6HHZRZY6X7)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/tao/Documents/FacebookSDK,
-					"/Users/Apurv/Documents/Apurv/SproutUp/ios/Bolts-iOS/ios",
-					/Users/Apurv/Documents/Apurv/SproutUp/ios/FacebookSDK,
-					/Users/Apurv/Documents/FacebookSDK,
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SproutUp/Info.plist;

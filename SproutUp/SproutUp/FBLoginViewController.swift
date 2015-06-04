@@ -16,7 +16,8 @@ class FBLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         if (FBSDKAccessToken.currentAccessToken() != nil)
         {
-            // User is already logged in, do work such as go to next view controller.
+            let vc = ProductsViewController();
+            presentViewController(vc, animated: true, completion: nil)
         }
         else
         {
@@ -43,7 +44,8 @@ class FBLoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             // should check if specific permissions missing
             if result.grantedPermissions.contains("email")
             {
-                // Do work
+                let vc = ProductsViewController();
+                presentViewController(vc, animated: true, completion: nil)
             }
         }
     }
