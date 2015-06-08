@@ -55,13 +55,13 @@ class SwipeToChooseView : UIView {
         }
         let frame : CGRect = CGRectMake(SwipeToChooseViewHorizontalPadding, yOrigin, self.imageView.bounds.midX, SwipeToChooseViewLabelWidth)
         if (self.options.likedImage != nil) {
-            self.likedView = UIView(frame: frame)
-            self.likedView.constructBorderedLabelWithText(self.options.likedText, color: self.options.likedColor, angle: self.options.likedRotationAngle);
-        }
-        else {
             self.likedView = UIImageView(image: self.options.likedImage)
             self.likedView.frame = frame
             self.likedView.contentMode = UIViewContentMode.ScaleAspectFit
+        }
+        else {
+            self.likedView = UIView(frame: frame)
+            self.likedView.constructBorderedLabelWithText(self.options.likedText, color: self.options.likedColor, angle: self.options.likedRotationAngle);
         }
         self.likedView.alpha = 0.0
         self.imageView.addSubview(self.likedView)
@@ -76,13 +76,13 @@ class SwipeToChooseView : UIView {
         }
         let frame : CGRect = CGRectMake(xOrigin, yOrigin, width, SwipeToChooseViewLabelWidth)
         if (self.options.nopeImage != nil) {
-            self.nopeView = UIView(frame: frame)
-            self.nopeView.constructBorderedLabelWithText(self.options.nopeText, color:self.options.nopeColor, angle:self.options.nopeRotationAngle)
-        }
-        else {
             self.nopeView = UIImageView(image: self.options.nopeImage)
             self.nopeView.frame = frame
             self.nopeView.contentMode = UIViewContentMode.ScaleAspectFit
+        }
+        else {
+            self.nopeView = UIView(frame: frame)
+            self.nopeView.constructBorderedLabelWithText(self.options.nopeText, color:self.options.nopeColor, angle:self.options.nopeRotationAngle)
         }
         self.nopeView.alpha = 0.0;
         self.imageView.addSubview(self.nopeView)

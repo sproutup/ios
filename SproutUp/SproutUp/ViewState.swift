@@ -8,13 +8,7 @@
 
 import UIKit
 
-enum RotationDirection {
-    case RotationAwayFromCenter
-    case RotationTowardsCenter
-}
-
 class ViewState : NSObject {
     var originalCenter : CGPoint = CGPointMake(0.0, 0.0)
     var originalTransform : CATransform3D = CATransform3D()
-    var rotationDirection : RotationDirection = RotationDirection.RotationTowardsCenter
 }

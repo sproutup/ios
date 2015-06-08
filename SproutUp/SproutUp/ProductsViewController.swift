@@ -73,7 +73,7 @@ class ProductsViewController: UIViewController, SwipeToChooseDelegate {
             println("Couldn't decide, huh?")
         }
         self.shouldBeChosenWithDirection = {(view: UIView, shouldBeChosenWithDirection: SwipeDirection) -> Bool in
-            if (shouldBeChosenWithDirection == SwipeDirection.Left) {
+            if shouldBeChosenWithDirection != SwipeDirection.None {
                 return true
             }
             else {

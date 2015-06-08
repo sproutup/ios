@@ -104,7 +104,7 @@ extension UIView {
             let translation : CGPoint = self.pvc_translationExceedingThreshold (self.pvc_options.threshold,
                 direction:direction)
             self.center = self.center.pointAdd(translation)
-            self.pvc_rotateForTranslation(translation, rotationDirection : RotationDirection.RotationAwayFromCenter)
+            self.pvc_rotateForTranslation(translation)
             self.pvc_executeOnPanBlockForTranslation(translation)
         }
         
@@ -118,7 +118,7 @@ extension UIView {
     }
     
     func pvc_setupPanGestureRecognizer() {
-        let panGestureRecognizer : UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: Selector("pvc_onSwipeToChoosePanGestureRecognizer"))
+        let panGestureRecognizer : UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: Selector("pvc_onSwipeToChoosePanGestureRecognizer:"))
         self.addGestureRecognizer(panGestureRecognizer)
     }
     
@@ -190,14 +190,9 @@ extension UIView {
         }
     }
     
-    func pvc_rotateForTranslation(translation : CGPoint, rotationDirection : RotationDirection) {
+    func pvc_rotateForTranslation(translation : CGPoint) {
         let rotation : CGFloat = (translation.x/100.0 * self.pvc_options.rotationFactor).radians
-        if rotationDirection == RotationDirection.RotationAwayFromCenter {
-            self.layer.transform = CATransform3DMakeRotation(rotation, 0.0, 0.0, 1.0)
-        }
-        else {
-            self.layer.transform = CATransform3DMakeRotation(-rotation, 0.0, 0.0, 1.0)
-        }
+        self.layer.transform = CATransform3DMakeRotation(rotation, 0.0, 0.0, 1.0)
     }
     
     func pvc_translationExceedingThreshold(threshold : CGFloat, direction : SwipeDirection) -> CGPoint {
@@ -233,13 +228,6 @@ extension UIView {
         if panGestureRecognizer.state == UIGestureRecognizerState.Began {
             self.pvc_viewState.originalCenter = view.center
             self.pvc_viewState.originalTransform = view.layer.transform
-            
-            if (panGestureRecognizer.locationInView(view).y < view.center.y) {
-                self.pvc_viewState.rotationDirection = RotationDirection.RotationAwayFromCenter
-            }
-            else {
-                self.pvc_viewState.rotationDirection = RotationDirection.RotationTowardsCenter
-            }
         }
         else if panGestureRecognizer.state == UIGestureRecognizerState.Ended {
             self.pvc_finalizePosition()
@@ -247,7 +235,7 @@ extension UIView {
         else {
             let translation : CGPoint = panGestureRecognizer.translationInView(view)
             view.center = self.pvc_viewState.originalCenter.pointAdd(translation)
-            self.pvc_rotateForTranslation(translation, rotationDirection: self.pvc_viewState.rotationDirection)
+            self.pvc_rotateForTranslation(translation)
             self.pvc_executeOnPanBlockForTranslation(translation)
         }
     }

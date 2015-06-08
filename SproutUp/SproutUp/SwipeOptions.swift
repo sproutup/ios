@@ -16,7 +16,7 @@ class SwipeOptions : NSObject {
     var swipeAnimationDuration : NSTimeInterval = 0.1
     var swipeAnimationOption : UIViewAnimationOptions = UIViewAnimationOptions.CurveEaseIn
     var threshold : CGFloat = 100.0
-    var rotationFactor : CGFloat = 3.0
+    var rotationFactor : CGFloat = 10.0
     var onPan : (PanState -> ())? = nil
     var onChosen : (SwipeResult -> ())? = { (state : SwipeResult) -> () in
         let duration = 0.1
