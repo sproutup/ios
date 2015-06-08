@@ -15,11 +15,11 @@ private var pvc_viewStateAssociationKey : UInt8 = 1
 private var pvc_setupAssociationKey : UInt8 = 2
 
 extension CGPoint {
-    func pointAdd(b : CGPoint) -> CGPoint {
+    func add(b : CGPoint) -> CGPoint {
         return CGPointMake(self.x + b.x, self.y + b.y)
     }
     
-    func pointSub(b : CGPoint) -> CGPoint {
+    func sub(b : CGPoint) -> CGPoint {
         return CGPointMake(self.x - b.x, self.y - b.y)
     }
 }
@@ -70,14 +70,6 @@ extension UIView {
             objc_setAssociatedObject(self, &pvc_viewStateAssociationKey, newValue, objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN))
         }
     }
-    var pvc_setup : Int! {
-        get {
-            return objc_getAssociatedObject(self, &pvc_setupAssociationKey) as? Int
-        }
-        set(newValue) {
-            objc_setAssociatedObject(self, &pvc_setupAssociationKey, newValue, objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN))
-        }
-    }
     
     func pvc_swipeToChooseSetup(options : SwipeOptions?) {
         self.pvc_options = SwipeOptions()
@@ -87,15 +79,11 @@ extension UIView {
         self.pvc_viewState = ViewState()
         self.pvc_viewState.originalCenter = self.center
         self.pvc_viewState.originalTransform = self.layer.transform
-        self.pvc_setup = 1
         self.pvc_setupPanGestureRecognizer()
+        self.pvc_setupTapGestureRecognizer()
     }
     
     func pvc_swipe(direction : SwipeDirection) {
-        if pvc_setup == 0 {
-            self.pvc_swipeToChooseSetup(nil)
-        }
-        
         if direction == SwipeDirection.None {
             self.pvc_finalizePosition()
         }
@@ -103,7 +91,7 @@ extension UIView {
         var animations = {() -> () in
             let translation : CGPoint = self.pvc_translationExceedingThreshold (self.pvc_options.threshold,
                 direction:direction)
-            self.center = self.center.pointAdd(translation)
+            self.center = self.center.add(translation)
             self.pvc_rotateForTranslation(translation)
             self.pvc_executeOnPanBlockForTranslation(translation)
         }
@@ -122,11 +110,16 @@ extension UIView {
         self.addGestureRecognizer(panGestureRecognizer)
     }
     
+    func pvc_setupTapGestureRecognizer() {
+        let tapGestureRecognizer : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("pvc_onTapGesture:"))
+        self.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
     func pvc_finalizePosition() {
         let direction : SwipeDirection = self.pvc_directionOfExceededThreshold()
         switch (direction) {
         case SwipeDirection.Right, SwipeDirection.Left:
-            let translation : CGPoint = self.center.pointSub(self.pvc_viewState.originalCenter)
+            let translation : CGPoint = self.center.sub(self.pvc_viewState.originalCenter)
             self.pvc_exitSuperviewFromTranslation(translation)
         case SwipeDirection.None:
             self.pvc_returnToOriginalCenter()
@@ -142,9 +135,7 @@ extension UIView {
             },
             completion: {(finished : Bool) -> () in
                 let delegate : SwipeToChooseDelegate = self.pvc_options.delegate!
-                if delegate.viewDidCancelSwipe != nil {
-                    delegate.viewDidCancelSwipe!(self)
-                }
+                delegate.viewDidCancelSwipe(self)
         })
     }
     
@@ -152,12 +143,10 @@ extension UIView {
         let direction : SwipeDirection = self.pvc_directionOfExceededThreshold()
         
         let delegate : SwipeToChooseDelegate = self.pvc_options.delegate!
-        if delegate.shouldBeChosenWithDirection != nil {
-            if !(delegate.shouldBeChosenWithDirection!(self, direction)) {
-                self.pvc_returnToOriginalCenter()
-                if self.pvc_options.onCancel != nil {
-                    self.pvc_options.onCancel!(self)
-                }
+        if !(delegate.shouldBeChosenWithDirection(self, shouldBeChosenWithDirection: direction)) {
+            self.pvc_returnToOriginalCenter()
+            if self.pvc_options.onCancel != nil {
+                self.pvc_options.onCancel!(self)
             }
         }
         
@@ -166,9 +155,7 @@ extension UIView {
         state.translation = translation
         state.direction = direction
         state.onCompletion = {
-            if delegate.wasChosenWithDirection != nil {
-                delegate.wasChosenWithDirection!(self, direction)
-            }
+            delegate.wasChosenWithDirection(self, wasChosenWithDirection: direction)
         }
         self.pvc_options.onChosen?(state)
     }
@@ -234,9 +221,14 @@ extension UIView {
         }
         else {
             let translation : CGPoint = panGestureRecognizer.translationInView(view)
-            view.center = self.pvc_viewState.originalCenter.pointAdd(translation)
+            view.center = self.pvc_viewState.originalCenter.add(translation)
             self.pvc_rotateForTranslation(translation)
             self.pvc_executeOnPanBlockForTranslation(translation)
         }
+    }
+    
+    func pvc_onTapGesture(tapGestureRecognizer: UITapGestureRecognizer) {
+        let delegate : SwipeToChooseDelegate = self.pvc_options.delegate!
+        delegate.didTapImage()
     }
 }

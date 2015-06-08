@@ -9,7 +9,8 @@
 import UIKit
 
 protocol SwipeToChooseDelegate {
-    var viewDidCancelSwipe : ((UIView) -> ())? {get}
-    var shouldBeChosenWithDirection : ((UIView, SwipeDirection) -> Bool)? {get}
-    var wasChosenWithDirection : ((UIView, SwipeDirection) -> ())? {get}
+    func viewDidCancelSwipe(view: UIView)
+    func shouldBeChosenWithDirection (view: UIView, shouldBeChosenWithDirection: SwipeDirection) -> Bool
+    func wasChosenWithDirection (view: UIView, wasChosenWithDirection: SwipeDirection)
+    func didTapImage()
 }

@@ -13,6 +13,9 @@
 		2B2BA1611AFC000300BD6923 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B2BA1601AFC000300BD6923 /* Images.xcassets */; };
 		2B2BA1641AFC000300BD6923 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B2BA1621AFC000300BD6923 /* LaunchScreen.xib */; };
 		2B2BA1701AFC000300BD6923 /* SproutUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2BA16F1AFC000300BD6923 /* SproutUpTests.swift */; };
+		683793341B2627AB00D77579 /* ProductInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683793331B2627AB00D77579 /* ProductInfoView.swift */; };
+		683793361B2640EF00D77579 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683793351B2640EF00D77579 /* BackButton.swift */; };
+		683793381B26412700D77579 /* ProductInformationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683793371B26412700D77579 /* ProductInformationDelegate.swift */; };
 		688D926D1B20A7FB003AF29E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688D92671B20A7FB003AF29E /* Bolts.framework */; };
 		688D926E1B20A7FB003AF29E /* FBAudienceNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688D92681B20A7FB003AF29E /* FBAudienceNetwork.framework */; };
 		688D926F1B20A7FB003AF29E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688D92691B20A7FB003AF29E /* FBSDKCoreKit.framework */; };
@@ -24,7 +27,6 @@
 		688D92781B20B524003AF29E /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688D92771B20B524003AF29E /* ProductsViewController.swift */; };
 		688D927A1B20B543003AF29E /* LikedProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688D92791B20B543003AF29E /* LikedProductViewController.swift */; };
 		688D927C1B20C7FC003AF29E /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688D927B1B20C7FC003AF29E /* Product.swift */; };
-		688D92851B20F256003AF29E /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688D92841B20F256003AF29E /* ProductView.swift */; };
 		688D928B1B21E9F9003AF29E /* SwipeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688D928A1B21E9F9003AF29E /* SwipeResult.swift */; };
 		688D928D1B21EC5C003AF29E /* PanState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688D928C1B21EC5C003AF29E /* PanState.swift */; };
 		688D928F1B21ED99003AF29E /* SwipeOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688D928E1B21ED99003AF29E /* SwipeOptions.swift */; };
@@ -57,6 +59,9 @@
 		2B2BA1691AFC000300BD6923 /* SproutUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SproutUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B2BA16E1AFC000300BD6923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B2BA16F1AFC000300BD6923 /* SproutUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SproutUpTests.swift; sourceTree = "<group>"; };
+		683793331B2627AB00D77579 /* ProductInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductInfoView.swift; sourceTree = "<group>"; };
+		683793351B2640EF00D77579 /* BackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		683793371B26412700D77579 /* ProductInformationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductInformationDelegate.swift; sourceTree = "<group>"; };
 		688D92671B20A7FB003AF29E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		688D92681B20A7FB003AF29E /* FBAudienceNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBAudienceNetwork.framework; sourceTree = "<group>"; };
 		688D92691B20A7FB003AF29E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -68,7 +73,6 @@
 		688D92771B20B524003AF29E /* ProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		688D92791B20B543003AF29E /* LikedProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikedProductViewController.swift; sourceTree = "<group>"; };
 		688D927B1B20C7FC003AF29E /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
-		688D92841B20F256003AF29E /* ProductView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		688D928A1B21E9F9003AF29E /* SwipeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeResult.swift; sourceTree = "<group>"; };
 		688D928C1B21EC5C003AF29E /* PanState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanState.swift; sourceTree = "<group>"; };
 		688D928E1B21ED99003AF29E /* SwipeOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeOptions.swift; sourceTree = "<group>"; };
@@ -135,9 +139,7 @@
 				2B2BA1591AFC000300BD6923 /* AppDelegate.swift */,
 				2B2BA15B1AFC000300BD6923 /* ViewController.swift */,
 				688D92731B20A9E6003AF29E /* FBLoginViewController.swift */,
-				688D92751B20B508003AF29E /* ProductInformationViewController.swift */,
 				688D92771B20B524003AF29E /* ProductsViewController.swift */,
-				688D92841B20F256003AF29E /* ProductView.swift */,
 				68F4048F1B25DE0E006723CD /* ChooseProductView.swift */,
 				688D927B1B20C7FC003AF29E /* Product.swift */,
 				688D928A1B21E9F9003AF29E /* SwipeResult.swift */,
@@ -148,6 +150,10 @@
 				688D92961B220F14003AF29E /* SwipeToChooseView.swift */,
 				688D92981B2228B4003AF29E /* ViewState.swift */,
 				688D92901B21F170003AF29E /* Extensions.swift */,
+				688D92751B20B508003AF29E /* ProductInformationViewController.swift */,
+				683793351B2640EF00D77579 /* BackButton.swift */,
+				683793371B26412700D77579 /* ProductInformationDelegate.swift */,
+				683793331B2627AB00D77579 /* ProductInfoView.swift */,
 				688D92791B20B543003AF29E /* LikedProductViewController.swift */,
 				2B2BA15D1AFC000300BD6923 /* Main.storyboard */,
 				68BC99B61B1FAA0000BD6560 /* Bridge-Header.h */,
@@ -287,16 +293,18 @@
 				688D927A1B20B543003AF29E /* LikedProductViewController.swift in Sources */,
 				688D92951B220BB7003AF29E /* SwipeToChooseDelegate.swift in Sources */,
 				688D92911B21F170003AF29E /* Extensions.swift in Sources */,
+				683793381B26412700D77579 /* ProductInformationDelegate.swift in Sources */,
 				688D92931B220293003AF29E /* SwipeToChooseViewOptions.swift in Sources */,
 				688D928D1B21EC5C003AF29E /* PanState.swift in Sources */,
 				688D92971B220F14003AF29E /* SwipeToChooseView.swift in Sources */,
 				688D92991B2228B4003AF29E /* ViewState.swift in Sources */,
-				688D92851B20F256003AF29E /* ProductView.swift in Sources */,
 				688D928F1B21ED99003AF29E /* SwipeOptions.swift in Sources */,
 				2B2BA15C1AFC000300BD6923 /* ViewController.swift in Sources */,
+				683793341B2627AB00D77579 /* ProductInfoView.swift in Sources */,
 				2B2BA15A1AFC000300BD6923 /* AppDelegate.swift in Sources */,
 				688D92741B20A9E6003AF29E /* FBLoginViewController.swift in Sources */,
 				688D92761B20B508003AF29E /* ProductInformationViewController.swift in Sources */,
+				683793361B2640EF00D77579 /* BackButton.swift in Sources */,
 				688D92781B20B524003AF29E /* ProductsViewController.swift in Sources */,
 				68F404901B25DE0E006723CD /* ChooseProductView.swift in Sources */,
 				688D928B1B21E9F9003AF29E /* SwipeResult.swift in Sources */,

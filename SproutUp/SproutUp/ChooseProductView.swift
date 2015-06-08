@@ -10,8 +10,9 @@ import UIKit
 
 class ChooseProductView : SwipeToChooseView {
     
+    var delegate : SwipeToChooseDelegate?
     var product: Product!
-    var informationView: UIView!
+    var basicInfoView: UIView!
     var nameLabel: UILabel!
     
     init(frame: CGRect, product: Product, options: SwipeToChooseViewOptions) {
@@ -36,26 +37,21 @@ class ChooseProductView : SwipeToChooseView {
     
     func constructInformationView() -> Void{
         var bottomHeight:CGFloat = 60.0
-        var bottomFrame:CGRect = CGRectMake(0,
-            CGRectGetHeight(self.bounds) - bottomHeight,
-            CGRectGetWidth(self.bounds),
-            bottomHeight);
-        self.informationView = UIView(frame:bottomFrame)
-        self.informationView.backgroundColor = UIColor.whiteColor()
-        self.informationView.clipsToBounds = true
-        self.informationView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleTopMargin
-        self.addSubview(self.informationView)
+        var bottomFrame:CGRect = CGRectMake(0, CGRectGetHeight(self.bounds) - bottomHeight, CGRectGetWidth(self.bounds), bottomHeight);
+        self.basicInfoView = UIView(frame:bottomFrame)
+        self.basicInfoView.backgroundColor = UIColor.whiteColor()
+        self.basicInfoView.clipsToBounds = true
+        self.basicInfoView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleTopMargin
+        self.addSubview(self.basicInfoView)
         constructNameLabel()
     }
     
     func constructNameLabel() -> Void{
         var leftPadding:CGFloat = 12.0
         var topPadding:CGFloat = 17.0
-        var frame:CGRect = CGRectMake(leftPadding, topPadding,
-            floor(CGRectGetWidth(self.informationView.frame)/2),
-            CGRectGetHeight(self.informationView.frame) - topPadding)
+        var frame:CGRect = CGRectMake(leftPadding, topPadding, floor(CGRectGetWidth(self.basicInfoView.frame)/2), CGRectGetHeight(self.basicInfoView.frame) - topPadding)
         self.nameLabel = UILabel(frame:frame)
         self.nameLabel.text = "\(product.name)"
-        self.informationView .addSubview(self.nameLabel)
+        self.basicInfoView .addSubview(self.nameLabel)
     }
 }
