@@ -22,7 +22,7 @@ class ProductView : UIView {
         self.product = product
         animator = UIDynamicAnimator(referenceView: self)
         productField = UIImageView()
-        productField.image = product.pic
+        productField.image = product.image
         productField.frame = CGRectIntegral(CGRectMake(
             self.imageMarginSpace, self.imageMarginSpace,
             self.frame.width - (self.imageMarginSpace * 2),

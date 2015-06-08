@@ -10,10 +10,10 @@ import UIKit
 
 class Product {
     var name : String
-    var pic : UIImage?
+    var image : UIImage!
     
-    init(name: String, pic: UIImage?) {
+    init(name: String, image: UIImage?) {
         self.name = name
-        self.pic = pic
+        self.image = image
     }
 }
