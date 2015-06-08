@@ -8,15 +8,11 @@
 
 import UIKit
 
-class ProductInformationViewController: UIViewController, ProductInformationDelegate {
+class ProductInformationViewController: UIViewController {
     
     var product : Product!
     var productInfoView : ProductInfoView!
-    var backButton : BackButton!
-    
-    func didTapBack() {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
+    var backButton : UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,12 +33,16 @@ class ProductInformationViewController: UIViewController, ProductInformationDele
     }
     
     func constructBackButton() {
-        self.backButton = BackButton(frame : backButtonFrame())
+        self.backButton = UIButton(frame : backButtonFrame())
         self.backButton.backgroundColor = UIColor.blackColor()
         self.backButton.setTitle("Back", forState: UIControlState.Normal)
         self.backButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        self.backButton.delegate = self
+        self.backButton.addTarget(self, action: "didTapBack", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(self.backButton)
+    }
+    
+    func didTapBack() {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

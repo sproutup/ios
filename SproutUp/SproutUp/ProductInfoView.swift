@@ -17,6 +17,8 @@ class ProductInfoView : UIScrollView {
         super.init(frame: frame)
         self.product = product
         self.info = UILabel(frame: CGRectMake(0, 0, 300, 30))
+        self.info.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        self.info.numberOfLines = 0
         self.info.text = product.info
         self.addSubview(info)
     }

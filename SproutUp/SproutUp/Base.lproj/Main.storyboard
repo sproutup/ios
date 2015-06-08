@@ -41,11 +41,30 @@
                     <navigationItem key="navigationItem" id="pXg-tT-RhG"/>
                     <connections>
                         <segue destination="yhG-o2-iUc" kind="modal" identifier="infoSegue" modalTransitionStyle="flipHorizontal" id="9wP-h0-7C7"/>
+                        <segue destination="RxW-zn-uB2" kind="modal" identifier="likedSegue" id="UjB-ln-HEr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iun-K9-6zg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="817.60000000000002" y="-563.74000000000001"/>
+        </scene>
+        <!--Liked Product View Controller-->
+        <scene sceneID="1TB-yC-Mhg">
+            <objects>
+                <viewController id="RxW-zn-uB2" customClass="LikedProductViewController" customModule="SproutUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aBf-ct-guT"/>
+                        <viewControllerLayoutGuide type="bottom" id="KCI-rD-ub9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DO0-ha-KEp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S3u-YE-zGY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1261" y="-564"/>
         </scene>
         <!--Product Information View Controller-->
         <scene sceneID="ZBW-mt-bF0">
@@ -63,7 +82,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DMI-l4-bpm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1271" y="-564"/>
+            <point key="canvasLocation" x="817" y="140"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

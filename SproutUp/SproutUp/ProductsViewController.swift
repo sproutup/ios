@@ -14,8 +14,7 @@ class ProductsViewController: UIViewController, SwipeToChooseDelegate {
     let ChoosePersonButtonHorizontalPadding : CGFloat = 80.0
     let ChoosePersonButtonVerticalPadding : CGFloat = 20.0
     var currentPerson : Product!
-    var frontCardView : ChooseProductView!
-    var backCardView : ChooseProductView!
+    var productView : ChooseProductView!
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -32,21 +31,19 @@ class ProductsViewController: UIViewController, SwipeToChooseDelegate {
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        self.setFrontView(self.popPersonViewWithFrame(frontCardViewFrame())!)
-        self.view.addSubview(self.frontCardView)
-        self.backCardView = self.popPersonViewWithFrame(backCardViewFrame())!
-        self.view.insertSubview(self.backCardView, belowSubview: self.frontCardView)
+        self.setProdView(self.popPersonViewWithFrame(productViewFrame())!)
+        self.view.addSubview(self.productView)
         constructNopeButton()
         constructLikedButton()
     }
     
-    func setFrontView(frontCardView : ChooseProductView) {
-        self.frontCardView = frontCardView
-        self.currentPerson = frontCardView.product
+    func setProdView(productView : ChooseProductView) {
+        self.productView = productView
+        self.currentPerson = productView.product
     }
     
     func defaultProducts() -> [Product] {
-        return [Product(name: "One", image: UIImage(named: "3"), info: "Product number one"), Product(name: "Two", image: UIImage(named: "5"), info: "Product number two"), Product(name: "Three", image: UIImage(named: "8"), info: "Product number three")]
+        return [Product(name: "One", image: UIImage(named: "3"), info: "Product number one", availability: "Unfortunately, product one is currently unavailable"), Product(name: "Two", image: UIImage(named: "5"), info: "Product number two", availability: "Unfortunately, product two is currently unavailable"), Product(name: "Three", image: UIImage(named: "8"), info: "Product number three", availability: "Unfortunately, product three is currently unavailable")]
     }
     
     func viewDidCancelSwipe(view: UIView) {
@@ -67,24 +64,19 @@ class ProductsViewController: UIViewController, SwipeToChooseDelegate {
     }
     func wasChosenWithDirection(view: UIView, wasChosenWithDirection: SwipeDirection) {
         if (wasChosenWithDirection == SwipeDirection.Left) {
-            println("Photo deleted!");
+            println("Photo deleted!")
         }
         else {
-            println("Photo saved!");
+            println("Photo saved!")
+            self.performSegueWithIdentifier("likedSegue", sender: nil)
         }
-        if(self.backCardView != nil){
-            self.setFrontView(self.backCardView)
-        }
-        
-        self.backCardView = self.popPersonViewWithFrame(self.backCardViewFrame())
-        //if(true){
-        // Fade the back card into view.
-        if(self.backCardView != nil){
-            self.backCardView.alpha = 0.0
-            self.view.insertSubview(self.backCardView, belowSubview: self.frontCardView)
-            UIView.animateWithDuration(0.5, delay: 0.0, options: .CurveEaseInOut, animations: {
-                self.backCardView.alpha = 1.0
-                },completion:nil)
+        let delay = 0.15 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            if self.products.count != 0 {
+                self.productView = self.popPersonViewWithFrame(self.productViewFrame())
+                self.view.addSubview(self.productView)
+            }
         }
     }
     func didTapImage() {
@@ -98,13 +90,8 @@ class ProductsViewController: UIViewController, SwipeToChooseDelegate {
         
         var options : SwipeToChooseViewOptions = SwipeToChooseViewOptions()
         options.delegate = self
-        options.threshold = 100.0
-        options.onPan = { state -> Void in
-            if(self.backCardView != nil){
-                var frame:CGRect = self.frontCardViewFrame()
-                self.backCardView.frame = CGRectMake(frame.origin.x, frame.origin.y-(state.thresholdRatio * 10.0), CGRectGetWidth(frame), CGRectGetHeight(frame))
-            }
-        }
+        options.threshold = 120.0
+        options.onPan = { state -> Void in }
         
         var productView : ChooseProductView = ChooseProductView(frame: frame, product : self.products[0], options: options)
         productView.delegate = self
@@ -113,51 +100,50 @@ class ProductsViewController: UIViewController, SwipeToChooseDelegate {
         
     }
     
-    func frontCardViewFrame() -> CGRect{
+    func productViewFrame() -> CGRect{
         var horizontalPadding:CGFloat = 20.0
         var topPadding:CGFloat = 60.0
         var bottomPadding:CGFloat = 200.0
         return CGRectMake(horizontalPadding,topPadding,self.view.frame.width - (horizontalPadding * 2), self.view.frame.height - bottomPadding)
     }
     
-    func backCardViewFrame() -> CGRect{
-        var frontFrame:CGRect = frontCardViewFrame()
-        return CGRectMake(frontFrame.origin.x, frontFrame.origin.y + 10.0, frontFrame.width, frontFrame.height)
-    }
-    
     func constructNopeButton() -> Void{
         let button : UIButton =  UIButton.buttonWithType(UIButtonType.System) as! UIButton
         let image : UIImage = UIImage(named:"nope")!
-        button.frame = CGRectMake(ChoosePersonButtonHorizontalPadding, self.backCardView.frame.maxY + ChoosePersonButtonVerticalPadding, image.size.width, image.size.height)
+        button.frame = CGRectMake(ChoosePersonButtonHorizontalPadding, self.productView.frame.maxY + ChoosePersonButtonVerticalPadding, image.size.width, image.size.height)
         button.setImage(image, forState: UIControlState.Normal)
         button.tintColor = UIColor(red: 247.0/255.0, green: 91.0/255.0, blue: 37.0/255.0, alpha: 1.0)
-        button.addTarget(self, action: "nopeFrontCardView", forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: "nopeproductView", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(button)
     }
     
     func constructLikedButton() -> Void{
         let button : UIButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
         let image : UIImage = UIImage(named:"liked")!
-        button.frame = CGRectMake(self.view.frame.maxX - image.size.width - ChoosePersonButtonHorizontalPadding, self.backCardView.frame.maxY + ChoosePersonButtonVerticalPadding, image.size.width, image.size.height)
+        button.frame = CGRectMake(self.view.frame.maxX - image.size.width - ChoosePersonButtonHorizontalPadding, self.productView.frame.maxY + ChoosePersonButtonVerticalPadding, image.size.width, image.size.height)
         button.setImage(image, forState:UIControlState.Normal)
         button.tintColor = UIColor(red: 29.0/255.0, green: 245.0/255.0, blue: 106.0/255.0, alpha: 1.0)
-        button.addTarget(self, action: "likeFrontCardView", forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: "likeproductView", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(button)
         
     }
     
-    func nopeFrontCardView() -> Void{
-        self.frontCardView.pvc_swipe(SwipeDirection.Left)
+    func nopeproductView() -> Void{
+        self.productView.pvc_swipe(SwipeDirection.Left)
     }
     
-    func likeFrontCardView() -> Void{
-        self.frontCardView.pvc_swipe(SwipeDirection.Right)
+    func likeproductView() -> Void{
+        self.productView.pvc_swipe(SwipeDirection.Right)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "infoSegue" {
             var destViewController : ProductInformationViewController = segue.destinationViewController as! ProductInformationViewController
-            destViewController.product = frontCardView.product
+            destViewController.product = productView.product
+        }
+        else if segue.identifier == "likedSegue" {
+            var destViewController : LikedProductViewController = segue.destinationViewController as! LikedProductViewController
+            destViewController.product = productView.product
         }
     }
     
