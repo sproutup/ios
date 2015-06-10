@@ -11,14 +11,33 @@ import UIKit
 class LikedProductViewController: UIViewController {
     
     var product : Product!
-    var productLikedView : ProductLikedView!
+    var productLikedView : UIScrollView!
     var backButton : UIButton!
+    var availability : UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.productLikedView = ProductLikedView(frame: productViewFrame(), product: self.product)
-        self.view.addSubview(self.productLikedView)
+        constructProductLikedView()
         constructBackButton()
+    }
+    
+    func constructProductLikedView() {
+        self.productLikedView = UIScrollView(frame : productViewFrame())
+        self.view.addSubview(self.productLikedView)
+        self.availability = UILabel(frame: CGRectMake(0, 0, 300, 60))
+        self.availability.text = product.description
+        self.availability.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        self.availability.numberOfLines = 0
+        self.productLikedView.addSubview(self.availability)
+    }
+    
+    func constructBackButton() {
+        self.backButton = UIButton(frame : backButtonFrame())
+        self.backButton.backgroundColor = UIColor.blackColor()
+        self.backButton.setTitle("Back", forState: UIControlState.Normal)
+        self.backButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        self.backButton.addTarget(self, action: "didTapBack", forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(self.backButton)
     }
     
     func productViewFrame() -> CGRect {
@@ -30,15 +49,6 @@ class LikedProductViewController: UIViewController {
     
     func backButtonFrame() -> CGRect {
         return CGRectMake(self.view.frame.minX,self.view.frame.maxY - 30,self.view.frame.width, 30)
-    }
-    
-    func constructBackButton() {
-        self.backButton = UIButton(frame : backButtonFrame())
-        self.backButton.backgroundColor = UIColor.blackColor()
-        self.backButton.setTitle("Back", forState: UIControlState.Normal)
-        self.backButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        self.backButton.addTarget(self, action: "didTapBack", forControlEvents: UIControlEvents.TouchUpInside)
-        self.view.addSubview(self.backButton)
     }
     
     func didTapBack() {

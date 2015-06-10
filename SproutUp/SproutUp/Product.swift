@@ -7,17 +7,28 @@
 //
 
 import UIKit
+import MediaPlayer
 
 class Product {
     var name : String
-    var image : UIImage!
-    var info : String
-    var availability : String
+    var mainImage : UIImage!
+    var description : String
+    var images : [UIImage!]
+    //var video : MPMoviePlayerController!
+    var moreInfo : String
+    //var canBuy : Bool
+    //var canTry : Bool
     
-    init(name: String, image: UIImage?, info : String, availability : String) {
+    
+    //init(name: String, images: [UIImage!], description: String, video: MPMoviePlayerController!, moreInfo: String, canBuy: Bool, canTry: Bool)
+    init(name: String, images: [UIImage!], description: String, moreInfo: String) {
         self.name = name
-        self.image = image
-        self.info = info
-        self.availability = availability
+        self.images = images
+        self.mainImage = self.images[0]
+        self.description = description
+        //self.video = video
+        self.moreInfo = moreInfo
+        //self.canBuy = canBuy
+        //self.canTry = canTry
     }
 }

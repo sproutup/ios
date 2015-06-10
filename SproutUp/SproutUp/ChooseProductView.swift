@@ -14,44 +14,58 @@ class ChooseProductView : SwipeToChooseView {
     var product: Product!
     var basicInfoView: UIView!
     var nameLabel: UILabel!
+    var descriptionLabel : UILabel!
     
     init(frame: CGRect, product: Product, options: SwipeToChooseViewOptions) {
         
         super.init(frame: frame, options: options)
         self.product = product
         
-        if let image = self.product.image {
-            self.imageView.image = image
-        }
+        var bottomHeight : CGFloat = 90.0
+        self.imageView.frame = CGRectMake(self.bounds.minX, self.bounds.minY, self.bounds.width, self.bounds.height - bottomHeight)
+        self.imageView.image = self.product.mainImage
         
-        self.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
-        UIViewAutoresizing.FlexibleBottomMargin
+        self.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleBottomMargin
+        self.layer.borderWidth = 0.0
         
         self.imageView.autoresizingMask = self.autoresizingMask
-        constructInformationView()
+        constructInformationView(bottomHeight)
     }
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    func constructInformationView() -> Void{
-        var bottomHeight:CGFloat = 60.0
-        var bottomFrame:CGRect = CGRectMake(0, CGRectGetHeight(self.bounds) - bottomHeight, CGRectGetWidth(self.bounds), bottomHeight);
+    func constructInformationView(bottomHeight: CGFloat) {
+        var bottomFrame : CGRect = CGRectMake(0, self.bounds.height - bottomHeight, self.bounds.width, bottomHeight);
         self.basicInfoView = UIView(frame:bottomFrame)
         self.basicInfoView.backgroundColor = UIColor.whiteColor()
         self.basicInfoView.clipsToBounds = true
         self.basicInfoView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleTopMargin
         self.addSubview(self.basicInfoView)
         constructNameLabel()
+        constructDescriptionLabel()
     }
     
-    func constructNameLabel() -> Void{
-        var leftPadding:CGFloat = 12.0
-        var topPadding:CGFloat = 17.0
-        var frame:CGRect = CGRectMake(leftPadding, topPadding, floor(CGRectGetWidth(self.basicInfoView.frame)/2), CGRectGetHeight(self.basicInfoView.frame) - topPadding)
+    func constructNameLabel() {
+        var leftPadding : CGFloat = 12.0
+        var topPadding : CGFloat = 7.0
+        var bottomPadding : CGFloat = 50.0
+        var frame : CGRect = CGRectMake(leftPadding, topPadding, floor(self.basicInfoView.frame.width/2),
+            self.basicInfoView.frame.height - topPadding - bottomPadding)
         self.nameLabel = UILabel(frame:frame)
         self.nameLabel.text = "\(product.name)"
-        self.basicInfoView .addSubview(self.nameLabel)
+        self.basicInfoView.addSubview(self.nameLabel)
+    }
+    
+    func constructDescriptionLabel() {
+        var horizontalPadding : CGFloat = 12.0
+        var topPadding : CGFloat = 30.0
+        var frame : CGRect = CGRectMake(horizontalPadding, topPadding,
+            self.basicInfoView.frame.width - (horizontalPadding * 2),
+            self.basicInfoView.frame.height - topPadding)
+        self.descriptionLabel = UILabel(frame:frame)
+        self.descriptionLabel.text = "\(product.description)"
+        self.basicInfoView.addSubview(self.descriptionLabel)
     }
 }

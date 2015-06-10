@@ -43,7 +43,13 @@ class ProductsViewController: UIViewController, SwipeToChooseDelegate {
     }
     
     func defaultProducts() -> [Product] {
-        return [Product(name: "One", image: UIImage(named: "3"), info: "Product number one", availability: "Unfortunately, product one is currently unavailable"), Product(name: "Two", image: UIImage(named: "5"), info: "Product number two", availability: "Unfortunately, product two is currently unavailable"), Product(name: "Three", image: UIImage(named: "8"), info: "Product number three", availability: "Unfortunately, product three is currently unavailable")]
+        return [
+            Product(name: "One",
+                images: [UIImage(named: "3"), UIImage(named: "5"), UIImage(named: "8")],
+                description: "Product number one",
+                moreInfo: "This is product number one. Deck of cards. More specifically, contains the number 3, 5, and 8. No others guaranteed"),
+            Product(name: "Two", images: [UIImage(named: "5")], description: "Product number two", moreInfo: ""),
+            Product(name: "Three", images: [UIImage(named: "8")], description: "Product number three", moreInfo: "")]
     }
     
     func viewDidCancelSwipe(view: UIView) {
@@ -102,7 +108,7 @@ class ProductsViewController: UIViewController, SwipeToChooseDelegate {
     
     func productViewFrame() -> CGRect{
         var horizontalPadding:CGFloat = 20.0
-        var topPadding:CGFloat = 60.0
+        var topPadding:CGFloat = 50.0
         var bottomPadding:CGFloat = 200.0
         return CGRectMake(horizontalPadding,topPadding,self.view.frame.width - (horizontalPadding * 2), self.view.frame.height - bottomPadding)
     }
