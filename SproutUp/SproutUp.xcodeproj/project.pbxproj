@@ -32,6 +32,10 @@
 		688D92951B220BB7003AF29E /* SwipeToChooseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688D92941B220BB7003AF29E /* SwipeToChooseDelegate.swift */; };
 		688D92971B220F14003AF29E /* SwipeToChooseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688D92961B220F14003AF29E /* SwipeToChooseView.swift */; };
 		688D92991B2228B4003AF29E /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688D92981B2228B4003AF29E /* ViewState.swift */; };
+		68D0D5651B28B2460002BB5C /* sample_mpeg4.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 68D0D5641B28B2460002BB5C /* sample_mpeg4.mp4 */; };
+		68D0D5671B28C82F0002BB5C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68D0D5661B28C82F0002BB5C /* AVFoundation.framework */; };
+		68D0D56F1B2A13190002BB5C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D0D56E1B2A13190002BB5C /* MenuViewController.swift */; };
+		68D0D5711B2A29490002BB5C /* LikedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D0D5701B2A29490002BB5C /* LikedListViewController.swift */; };
 		68F404901B25DE0E006723CD /* ChooseProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F4048F1B25DE0E006723CD /* ChooseProductView.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +80,10 @@
 		688D92961B220F14003AF29E /* SwipeToChooseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeToChooseView.swift; sourceTree = "<group>"; };
 		688D92981B2228B4003AF29E /* ViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		68BC99B61B1FAA0000BD6560 /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
+		68D0D5641B28B2460002BB5C /* sample_mpeg4.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample_mpeg4.mp4; sourceTree = "<group>"; };
+		68D0D5661B28C82F0002BB5C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		68D0D56E1B2A13190002BB5C /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		68D0D5701B2A29490002BB5C /* LikedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikedListViewController.swift; sourceTree = "<group>"; };
 		68F4048F1B25DE0E006723CD /* ChooseProductView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseProductView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68D0D5671B28C82F0002BB5C /* AVFoundation.framework in Frameworks */,
 				688D926D1B20A7FB003AF29E /* Bolts.framework in Frameworks */,
 				688D926F1B20A7FB003AF29E /* FBSDKCoreKit.framework in Frameworks */,
 				688D92721B20A7FB003AF29E /* FBSDKShareKit.framework in Frameworks */,
@@ -106,6 +115,7 @@
 		2B2BA14B1AFC000300BD6923 = {
 			isa = PBXGroup;
 			children = (
+				68D0D5661B28C82F0002BB5C /* AVFoundation.framework */,
 				688D92671B20A7FB003AF29E /* Bolts.framework */,
 				688D92681B20A7FB003AF29E /* FBAudienceNetwork.framework */,
 				688D92691B20A7FB003AF29E /* FBSDKCoreKit.framework */,
@@ -130,6 +140,7 @@
 		2B2BA1561AFC000300BD6923 /* SproutUp */ = {
 			isa = PBXGroup;
 			children = (
+				68D0D5641B28B2460002BB5C /* sample_mpeg4.mp4 */,
 				2B2BA1591AFC000300BD6923 /* AppDelegate.swift */,
 				2B2BA15B1AFC000300BD6923 /* ViewController.swift */,
 				688D92731B20A9E6003AF29E /* FBLoginViewController.swift */,
@@ -144,6 +155,8 @@
 				688D92961B220F14003AF29E /* SwipeToChooseView.swift */,
 				688D92981B2228B4003AF29E /* ViewState.swift */,
 				688D92901B21F170003AF29E /* Extensions.swift */,
+				68D0D56E1B2A13190002BB5C /* MenuViewController.swift */,
+				68D0D5701B2A29490002BB5C /* LikedListViewController.swift */,
 				688D92751B20B508003AF29E /* ProductInformationViewController.swift */,
 				688D92791B20B543003AF29E /* LikedProductViewController.swift */,
 				2B2BA15D1AFC000300BD6923 /* Main.storyboard */,
@@ -262,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B2BA15F1AFC000300BD6923 /* Main.storyboard in Resources */,
+				68D0D5651B28B2460002BB5C /* sample_mpeg4.mp4 in Resources */,
 				2B2BA1641AFC000300BD6923 /* LaunchScreen.xib in Resources */,
 				2B2BA1611AFC000300BD6923 /* Images.xcassets in Resources */,
 			);
@@ -281,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68D0D5711B2A29490002BB5C /* LikedListViewController.swift in Sources */,
 				688D927A1B20B543003AF29E /* LikedProductViewController.swift in Sources */,
 				688D92951B220BB7003AF29E /* SwipeToChooseDelegate.swift in Sources */,
 				688D92911B21F170003AF29E /* Extensions.swift in Sources */,
@@ -292,6 +307,7 @@
 				2B2BA15C1AFC000300BD6923 /* ViewController.swift in Sources */,
 				2B2BA15A1AFC000300BD6923 /* AppDelegate.swift in Sources */,
 				688D92741B20A9E6003AF29E /* FBLoginViewController.swift in Sources */,
+				68D0D56F1B2A13190002BB5C /* MenuViewController.swift in Sources */,
 				688D92761B20B508003AF29E /* ProductInformationViewController.swift in Sources */,
 				688D92781B20B524003AF29E /* ProductsViewController.swift in Sources */,
 				68F404901B25DE0E006723CD /* ChooseProductView.swift in Sources */,

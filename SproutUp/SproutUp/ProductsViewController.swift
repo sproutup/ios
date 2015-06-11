@@ -11,10 +11,13 @@ import UIKit
 class ProductsViewController: UIViewController, SwipeToChooseDelegate {
     
     var products : [Product] = []
+    var likedProducts : [Product] = []
     let ChoosePersonButtonHorizontalPadding : CGFloat = 80.0
     let ChoosePersonButtonVerticalPadding : CGFloat = 20.0
-    var currentPerson : Product!
+    var currentProduct : Product!
     var productView : ChooseProductView!
+    var menuButton : UIButton!
+    
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -35,11 +38,12 @@ class ProductsViewController: UIViewController, SwipeToChooseDelegate {
         self.view.addSubview(self.productView)
         constructNopeButton()
         constructLikedButton()
+        constructMenuButton()
     }
     
     func setProdView(productView : ChooseProductView) {
         self.productView = productView
-        self.currentPerson = productView.product
+        self.currentProduct = productView.product
     }
     
     func defaultProducts() -> [Product] {
@@ -47,9 +51,11 @@ class ProductsViewController: UIViewController, SwipeToChooseDelegate {
             Product(name: "One",
                 images: [UIImage(named: "3"), UIImage(named: "5"), UIImage(named: "8")],
                 description: "Product number one",
-                moreInfo: "This is product number one. Deck of cards. More specifically, contains the number 3, 5, and 8. No others guaranteed"),
-            Product(name: "Two", images: [UIImage(named: "5")], description: "Product number two", moreInfo: ""),
-            Product(name: "Three", images: [UIImage(named: "8")], description: "Product number three", moreInfo: "")]
+                moreInfo: "This is product number one. Deck of cards. More specifically, contains the number 3, 5, and 8. No others guaranteed",
+                videoName: "sample_mpeg4",
+                videoType: "mp4"),
+            Product(name: "Two", images: [UIImage(named: "5")], description: "Product number two", moreInfo: "", videoName: "sample", videoType: "mp4"),
+            Product(name: "Three", images: [UIImage(named: "8")], description: "Product number three", moreInfo: "", videoName: "sample", videoType: "mp4")]
     }
     
     func viewDidCancelSwipe(view: UIView) {
@@ -74,14 +80,15 @@ class ProductsViewController: UIViewController, SwipeToChooseDelegate {
         }
         else {
             println("Photo saved!")
+            self.likedProducts.append(self.currentProduct)
             self.performSegueWithIdentifier("likedSegue", sender: nil)
         }
         let delay = 0.15 * Double(NSEC_PER_SEC)
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         dispatch_after(time, dispatch_get_main_queue()) {
             if self.products.count != 0 {
-                self.productView = self.popPersonViewWithFrame(self.productViewFrame())
-                self.view.addSubview(self.productView)
+                self.setProdView(self.popPersonViewWithFrame(self.productViewFrame())!)
+                self.view.insertSubview(self.productView, belowSubview: self.menuButton)
             }
         }
     }
@@ -103,17 +110,16 @@ class ProductsViewController: UIViewController, SwipeToChooseDelegate {
         productView.delegate = self
         self.products.removeAtIndex(0)
         return productView
-        
     }
     
-    func productViewFrame() -> CGRect{
+    func productViewFrame() -> CGRect {
         var horizontalPadding:CGFloat = 20.0
         var topPadding:CGFloat = 50.0
         var bottomPadding:CGFloat = 200.0
         return CGRectMake(horizontalPadding,topPadding,self.view.frame.width - (horizontalPadding * 2), self.view.frame.height - bottomPadding)
     }
     
-    func constructNopeButton() -> Void{
+    func constructNopeButton() {
         let button : UIButton =  UIButton.buttonWithType(UIButtonType.System) as! UIButton
         let image : UIImage = UIImage(named:"nope")!
         button.frame = CGRectMake(ChoosePersonButtonHorizontalPadding, self.productView.frame.maxY + ChoosePersonButtonVerticalPadding, image.size.width, image.size.height)
@@ -123,7 +129,7 @@ class ProductsViewController: UIViewController, SwipeToChooseDelegate {
         self.view.addSubview(button)
     }
     
-    func constructLikedButton() -> Void{
+    func constructLikedButton() {
         let button : UIButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
         let image : UIImage = UIImage(named:"liked")!
         button.frame = CGRectMake(self.view.frame.maxX - image.size.width - ChoosePersonButtonHorizontalPadding, self.productView.frame.maxY + ChoosePersonButtonVerticalPadding, image.size.width, image.size.height)
@@ -134,6 +140,14 @@ class ProductsViewController: UIViewController, SwipeToChooseDelegate {
         
     }
     
+    func constructMenuButton() {
+        self.menuButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+        self.menuButton.frame = CGRectMake(self.productView.frame.maxX * 4/5, self.productView.frame.maxY * 1/6, 40.0, 40.0)
+        self.menuButton.setTitle("Menu", forState: UIControlState.Normal)
+        self.menuButton.addTarget(self, action: "showMenuView", forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(self.menuButton)
+    }
+    
     func nopeproductView() -> Void{
         self.productView.pvc_swipe(SwipeDirection.Left)
     }
@@ -142,14 +156,22 @@ class ProductsViewController: UIViewController, SwipeToChooseDelegate {
         self.productView.pvc_swipe(SwipeDirection.Right)
     }
     
+    func showMenuView() {
+        self.performSegueWithIdentifier("menuSegue", sender: nil)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "infoSegue" {
+        if segue.identifier == "menuSegue" {
+            var destViewController : MenuViewController = segue.destinationViewController as! MenuViewController
+            destViewController.likedProducts = self.likedProducts
+        }
+        else if segue.identifier == "infoSegue" {
             var destViewController : ProductInformationViewController = segue.destinationViewController as! ProductInformationViewController
-            destViewController.product = productView.product
+            destViewController.product = self.currentProduct
         }
         else if segue.identifier == "likedSegue" {
             var destViewController : LikedProductViewController = segue.destinationViewController as! LikedProductViewController
-            destViewController.product = productView.product
+            destViewController.product = self.currentProduct
         }
     }
     

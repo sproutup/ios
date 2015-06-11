@@ -23,7 +23,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="imG-40-5BU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="373.33333333333331" y="-563.26666666666665"/>
+            <point key="canvasLocation" x="375" y="-564"/>
         </scene>
         <!--Products View Controller-->
         <scene sceneID="Cvt-fj-ifC">
@@ -42,6 +42,7 @@
                     <connections>
                         <segue destination="yhG-o2-iUc" kind="modal" identifier="infoSegue" modalTransitionStyle="flipHorizontal" id="9wP-h0-7C7"/>
                         <segue destination="RxW-zn-uB2" kind="modal" identifier="likedSegue" id="UjB-ln-HEr"/>
+                        <segue destination="26f-ZY-zVB" kind="modal" identifier="menuSegue" id="jik-5u-lbi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iun-K9-6zg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -64,7 +65,49 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S3u-YE-zGY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1261" y="-564"/>
+            <point key="canvasLocation" x="1259" y="140"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="cLk-K6-Q3r">
+            <objects>
+                <viewController id="26f-ZY-zVB" customClass="MenuViewController" customModule="SproutUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ekD-x3-OgN"/>
+                        <viewControllerLayoutGuide type="bottom" id="8Ty-T5-KZx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BXN-eW-KgY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="ZLi-ie-lBi" kind="modal" identifier="likedListSegue" id="nmM-Sw-gmk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4dR-jk-aGE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="375" y="140"/>
+        </scene>
+        <!--Liked List View Controller-->
+        <scene sceneID="NMt-Vc-1HK">
+            <objects>
+                <viewController id="ZLi-ie-lBi" customClass="LikedListViewController" customModule="SproutUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PCl-BM-DfZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vcm-VH-iVi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NZq-0f-N4z">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="yhG-o2-iUc" kind="modal" identifier="productInfoSegue" id="xk2-Id-WgG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xs8-BX-afR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="375" y="840"/>
         </scene>
         <!--Product Information View Controller-->
         <scene sceneID="ZBW-mt-bF0">
@@ -90,4 +133,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="xk2-Id-WgG"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import MediaPlayer
+import AVFoundation
+import AVKit
 
 class ProductInformationViewController: UIViewController, UIScrollViewDelegate {
     
@@ -17,11 +18,13 @@ class ProductInformationViewController: UIViewController, UIScrollViewDelegate {
     var imageScrollView : UIScrollView!
     var imagePageControl : UIPageControl!
     var descriptionView : UILabel!
+    var video : AVPlayerViewController!
+    var playButton : UIButton!
     var backButton : UIButton!
     
     let scrollViewTopPadding : CGFloat = 20.0
     let scrollHeight : CGFloat = 300.0
-    let scrollImageTopPadding : CGFloat = 30.0
+    let scrollImageTopPadding : CGFloat = 20.0
     let scrollImageBottomPadding : CGFloat = 15.0
     let scrollImageHorizontalPadding : CGFloat = 60.0
     let pageControlHeight : CGFloat = 10.0
@@ -29,6 +32,8 @@ class ProductInformationViewController: UIViewController, UIScrollViewDelegate {
     let descriptionHorizontalPadding : CGFloat = 20.0
     let descriptionHeight : CGFloat = 90.0
     let betweenDescriptionVideo : CGFloat = 10.0
+    let videoHorizontalPadding : CGFloat = 20.0
+    let videoHeight : CGFloat = 200
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +47,7 @@ class ProductInformationViewController: UIViewController, UIScrollViewDelegate {
         self.view.addSubview(self.productInfoView)
         constructImageScrollView()
         constructDescriptionView()
+        constructVideo()
     }
     
     func constructImageScrollView() {
@@ -88,6 +94,23 @@ class ProductInformationViewController: UIViewController, UIScrollViewDelegate {
         self.productInfoView.addSubview(self.descriptionView)
     }
     
+    func constructVideo() {
+        self.video = AVPlayerViewController()
+        self.video.player = AVPlayer(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(product.videoName, ofType: product.videoType)!))
+        self.video.view.frame = CGRectMake(videoHorizontalPadding, self.descriptionView.frame.maxY + self.betweenDescriptionVideo, self.view.frame.width - videoHorizontalPadding * 2, self.videoHeight)
+        self.productInfoView.addSubview(self.video.view)
+        constructPlayButton()
+    }
+    
+    func constructPlayButton() {
+        self.playButton = UIButton(frame : self.video.view.frame)
+        self.playButton.backgroundColor = UIColor.blackColor()
+        self.playButton.setTitle("Play", forState: UIControlState.Normal)
+        self.playButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        self.playButton.addTarget(self, action: "pressedPlay", forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(self.playButton)
+    }
+    
     func constructBackButton() {
         self.backButton = UIButton(frame : backButtonFrame())
         self.backButton.backgroundColor = UIColor.blackColor()
@@ -109,6 +132,14 @@ class ProductInformationViewController: UIViewController, UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(imageScrollView: UIScrollView) {
         let pageNumber = round(self.imageScrollView.contentOffset.x / self.imageScrollView.frame.size.width)
         self.imagePageControl.currentPage = Int(pageNumber)
+    }
+    
+    func pressedPlay() {
+        println("pressed play")
+        self.playButton.alpha = 0.0
+        
+        //self.video.setFullscreen(true, animated: true)
+        self.video.player.play()
     }
     
     func didTapBack() {
